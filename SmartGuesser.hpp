@@ -4,7 +4,7 @@
 namespace bullpgia{
 
 using namespace std;
-class SmartGuesser{
+class SmartGuesser : public Guesser{
     public:
     virtual string guess();
 };

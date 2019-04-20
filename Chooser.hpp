@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-
+using namespace std;
 namespace bullpgia{
 
-using namespace std;
+
 class Chooser{
     public:
     virtual string choose(uint);

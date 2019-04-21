@@ -6,7 +6,7 @@ namespace bullpgia{
 
 class Chooser{
     public:
-    virtual string choose(uint);
+    virtual string choose(uint) = 0;
 };
 
 }

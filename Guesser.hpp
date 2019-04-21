@@ -7,9 +7,15 @@ using namespace std;
 class Guesser{
     public:
     unsigned int length;
-    virtual string guess();
-    void learn(string);
-    void startNewGame(unsigned int length);
+    string answer;
+
+    virtual string guess() = 0;
+    virtual void learn(string ans) {
+        this->answer = ans;
+    }
+    virtual void startNewGame(unsigned int length){
+        this->length = length;
+    }
 };
 
 }

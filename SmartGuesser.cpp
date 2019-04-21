@@ -3,8 +3,7 @@
 
 using namespace std;
 string bullpgia::SmartGuesser::guess(){
-    string out;
 
-    return out;
+ return "0000";   
 
 };

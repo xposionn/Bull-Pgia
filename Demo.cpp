@@ -27,7 +27,7 @@ int main() {
 	for (uint i=0; i<100; ++i) {
 		cout << play(randy, guessy, 2, 100) << endl;  // guesser should often win but sometimes lose.
 	}
-
+	cout << "smart turn"<<endl;
 	SmartGuesser smarty;
 	for (uint i=0; i<100; ++i) {
 		cout << play(randy, smarty, 4, 100) << endl;  // smarty should always win in at most 10 turns!

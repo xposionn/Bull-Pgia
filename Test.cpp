@@ -25,8 +25,8 @@ int main() {
 	if (signal == 0) {
 
 		// BASIC TESTS - DO NOT CHANGE
-		ConstantChooser c1234{"1234"}, c12345{"12345"}, c9999{"9999"};
-		ConstantGuesser g1234{"1234"}, g12345{"12345"}, g9999{"9999"};
+		ConstantChooser g2828{"2828"}, c0{"0"}, c1234{"1234"}, c12345{"12345"}, c9999{"9999"};
+		ConstantGuesser g2828{"2828"}, g0{"0"}, g1234{"1234"}, g12345{"12345"}, g9999{"9999"};
 
 		testcase.setname("Calculate bull and pgia")
 		.CHECK_OUTPUT(calculateBullAndPgia("1234","1234"), "4,0")      // 4 bull, 0 pgia
@@ -38,11 +38,35 @@ int main() {
 		.CHECK_EQUAL(play(c1234, g9999, 4, 100), 101)    // guesser loses by running out of turns 
 		.CHECK_EQUAL(play(c1234, g12345, 4, 100), 101)   // guesser loses technically by making an illegal guess (too long).
 		.CHECK_EQUAL(play(c12345, g1234, 4, 100), 0)     // chooser loses technically by choosing an illegal number (too long).
+		;
 
 		//Our Tests
+		testcase.setname("100 percent bullseye")
+		.CHECK_OUTPUT(calculateBullAndPgia("9999","9999"), "4,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("8787","8787"), "4,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("1","1"), "1,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("55","55"), "2,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("57","57"), "2,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("1234567","1234567"), "7,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("852852852","852852852"), "9,0")
+		;
 
+		testcase.setname("short and long chooser-guesser combinations")
+		.CHECK_OUTPUT(calculateBullAndPgia("9","8"), "0,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("87","79"), "0,1")
+		.CHECK_OUTPUT(calculateBullAndPgia("789654","000124"), "0,1")
+		.CHECK_OUTPUT(calculateBullAndPgia("000000","111111"), "0,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("8888777999","5700000000"), "0,1")
+		.CHECK_OUTPUT(calculateBullAndPgia("987654321","123456789"), "1,9") //only 5 is bull, all others are pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("852852851","852852857"), "8,0")
+		.CHECK_OUTPUT(calculateBullAndPgia("1573","1875"), "2,1")	   // 2 bull, 1 pgia
+		;
 
-
+		testcase.setname("play function")
+		.CHECK_EQUAL(play(c1234, g1234, 4, 5), 1) //guesser should win in 1 turn even with max turns of 5 and not 100.
+		.CHECK_EQUAL(play(c0, g0, 1, 5), 1) //1 turn winning
+		.CHECK_EQUAL(play(c1234, g0, 1, 5), 0) // chooser loses technical
+		.CHECK_EQUAL(play(c0, g12345, 1, 100), 101) // guesser loses technical
 		;
 
 		testcase.setname("Play with smart guesser");

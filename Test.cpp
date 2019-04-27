@@ -54,10 +54,10 @@ int main() {
 		testcase.setname("short and long chooser-guesser combinations")
 		.CHECK_OUTPUT(calculateBullAndPgia("9","8"), "0,0")
 		.CHECK_OUTPUT(calculateBullAndPgia("87","79"), "0,1")
-		.CHECK_OUTPUT(calculateBullAndPgia("789654","000124"), "0,1")
+		.CHECK_OUTPUT(calculateBullAndPgia("789654","000124"), "1,0")
 		.CHECK_OUTPUT(calculateBullAndPgia("000000","111111"), "0,0")
 		.CHECK_OUTPUT(calculateBullAndPgia("8888777999","5700000000"), "0,1")
-		.CHECK_OUTPUT(calculateBullAndPgia("987654321","123456789"), "1,9") //only 5 is bull, all others are pgia
+		.CHECK_OUTPUT(calculateBullAndPgia("987654321","123456789"), "1,8") //only 5 is bull, all others are pgia
 		.CHECK_OUTPUT(calculateBullAndPgia("852852851","852852857"), "8,0")
 		.CHECK_OUTPUT(calculateBullAndPgia("1573","1875"), "2,1")	   // 2 bull, 1 pgia
 		;

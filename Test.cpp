@@ -25,7 +25,7 @@ int main() {
 	if (signal == 0) {
 
 		// BASIC TESTS - DO NOT CHANGE
-		ConstantChooser g2828{"2828"}, c0{"0"}, c1234{"1234"}, c12345{"12345"}, c9999{"9999"};
+		ConstantChooser c2828{"2828"}, c0{"0"}, c1234{"1234"}, c12345{"12345"}, c9999{"9999"};
 		ConstantGuesser g2828{"2828"}, g0{"0"}, g1234{"1234"}, g12345{"12345"}, g9999{"9999"};
 
 		testcase.setname("Calculate bull and pgia")

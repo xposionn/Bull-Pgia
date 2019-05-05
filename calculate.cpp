@@ -6,9 +6,9 @@ using namespace std;
 string calculateBullAndPgia(string choice,string guess){
     int bull = 0,pgia = 0;
     char digits[10] = {0};
-    if(choice.length() != guess.length()){
-        return "Technical";
-    }
+  //  if(choice.length() != guess.length()){
+    //    return "Technical";
+   // }
     for(int i=0;i<guess.length();i++){
         if(choice.at(i) == guess.at(i)){
             bull++;

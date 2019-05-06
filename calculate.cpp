@@ -21,7 +21,6 @@ string calculateBullAndPgia(string choice,string guess){
     else{
         //this should never happen. but Badkan tests have 3 incorrect tests which we need to handle in order for a 100.
         //Before adding tests to badkan, you should verify for legit tests.
-        cout<<"choice was: " << choice << endl;
-        cout << "guess was: " << guess << endl;
+        return "choice was: "+ choice +  "\nguess was: " +guess;
     }
 };
